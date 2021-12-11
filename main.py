@@ -28,7 +28,8 @@ class Test():
         return items[1:][0]
 
     #функции подсчета стоимости доставки
-    def shipping_cost_calculation(self, country, region, zip_code, state):
+    def shipping_cost_calculation(self, country,
+                                  region, zip_code, state):
         product = self.get_content("https://dropdead.world/collections/shop-all")
         url = self.url + product
         self.browser.get(url)
@@ -66,11 +67,13 @@ class Test():
 
     # Проверка функции подсчета стоимости доставки
     def test_shipping_cost_calculation_valid(self):
-        self.shipping_cost_calculation(country=country_valid, region=region_valid,  zip_code=zip_code_valid, state=3)
+        self.shipping_cost_calculation(country=country_valid,
+                                       region=region_valid,  zip_code=zip_code_valid, state=3)
 
     # Проверка функции подсчета стоимости доставки
     def test_shipping_cost_calculation_invalid(self):
-        self.shipping_cost_calculation(country=country_novalid, region=region_novalid, zip_code=zip_code_novalid, state=3)
+        self.shipping_cost_calculation(country=country_novalid,
+                                       region=region_novalid, zip_code=zip_code_novalid, state=3)
 
     def authorization(self, email, password):
         url = self.url + "/account/login?return_url=%2Faccount"
@@ -95,7 +98,8 @@ class Test():
         self.authorization(email_novalid, password_invalid)
 
     #функции регистрации с валидными данными
-    def  Registration(self, firstName, lastName, email, password):
+    def  Registration(self, firstName,
+                      lastName, email, password):
         url = self.url + "/account/register"
         self.browser.get(url)
         time.sleep(1)
@@ -115,9 +119,11 @@ class Test():
 
     # Проверка функции регистрации с валидными данными
     def test_registration_valid_data(self):
-        self.Registration(firstName=First_Name, lastName=Last_Name, email=reg_email_valid, password=password_valid)
+        self.Registration(firstName=First_Name, lastName=Last_Name,
+                          email=reg_email_valid, password=password_valid)
 
     #Проверка функции регистрации c невалидными данными
     def  test_registration_invalid_data(self):
-        self.Registration(firstName=First_Name, lastName=Last_Name, email=reg_email_invalid, password=password_invalid)
+        self.Registration(firstName=First_Name, lastName=Last_Name,
+                          email=reg_email_invalid, password=password_invalid)
 
